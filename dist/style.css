@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header{
+    font-size: 30px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(18, 62, 182);
+    color: white;
+}
+
+#card-container{
+    margin-left: 200px;
+    margin-right: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.member-card{
+    margin-right: 20px;
+}

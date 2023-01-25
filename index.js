@@ -31,17 +31,9 @@ inquirer
             name: 'memberChoice',
         }
     ])
-    .then(data => { 
-        helper.addManager(data);
-        if (data.memberChoice == "Engineer") {
-            helper.addEngineerInquirer();
-        } else if (data.memberChoice == "Intern") {
-            helper.addInternInquirer();
-        } else {
-            console.log(helper.engineerArray,helper.managerArray,helper.internArray);
-          return;
-        }
-    })
+    .then(helper.handleData(data))
+    .then(data => {console.log(helper.engineerArray,helper.internArray);}
+    )
 
     
 

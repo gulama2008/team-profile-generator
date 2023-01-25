@@ -1,7 +1,5 @@
 const inquirer = require("inquirer");
-const manager = require("../lib/Manager");
-const engineer = require("../lib/Engineer");
-const intern = require("../lib/Intern");
+const fs = require('fs');
 const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
@@ -45,21 +43,7 @@ function addEngineerInquirer() {
         name: "memberChoice",
       },
     ])
-    .then((data) => {
-      addEngineer(data);
-      if (data.memberChoice == "Engineer") {
-        addEngineerInquirer();
-      } else if (data.memberChoice == "Intern") {
-        addInternInquirer();
-      } else {
-          console.log(
-            engineerArray,
-            managerArray,
-            internArray
-          );
-        return;
-      }
-    });
+    .then(handleData(data));
 }
 
 //inquirer questions when user choose to add new intern
@@ -97,21 +81,29 @@ function addInternInquirer() {
         name: "memberChoice",
       },
     ])
-    .then((data) => {
-      addIntern(data);
-      if (data.memberChoice == "Engineer") {
-        addEngineerInquirer();
-      } else if (data.memberChoice == "Intern") {
-        addInternInquirer();
-      } else {
-          console.log(
-            engineerArray,
-            managerArray,
-            internArray
-          );
-        return;
-      }
-    });
+    .then(handleData(data));
+}
+
+//function for creating member object and check if need to add more member
+function handleData(data) { 
+    addIntern(data);
+    if (data.memberChoice == "Engineer") {
+      addEngineerInquirer();
+    } else if (data.memberChoice == "Intern") {
+      addInternInquirer();
+    } else {
+      //   console.log(
+      //     engineerArray,
+      //     managerArray,
+      //     internArray
+      //   );
+      return;
+    }
+}
+
+//function of writing data to html file
+function writeToHtml() { 
+    fs.writeFile('../dist/member.html',)
 }
 
 //function of creating manager object and add it to the manager array
@@ -153,6 +145,7 @@ module.exports = {
   internArray,
   addEngineerInquirer,
   addInternInquirer,
+  handleData,
   addManager,
   addEngineer,
   addIntern,
