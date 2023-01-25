@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const helper = require('./src/template_helper')
+
 inquirer
     .prompt([
         {
@@ -28,6 +30,18 @@ inquirer
             message: "Which type of team member would you like to add?",
             name: 'memberChoice',
         }
-
     ])
+    .then(data => { 
+        helper.addManager(data);
+        if (data.memberChoice == "Engineer") {
+            helper.addEngineerInquirer();
+        } else if (data.memberChoice == "Intern") {
+            helper.addInternInquirer();
+        } else {
+            console.log(helper.engineerArray,helper.managerArray,helper.internArray);
+          return;
+        }
+    })
+
+    
 
