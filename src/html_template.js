@@ -1,3 +1,4 @@
+//function of creating the full html template
 function writeHtml(cards) { 
     return `
 <!DOCTYPE html>
@@ -25,6 +26,7 @@ function writeHtml(cards) {
 </html>`;
 }
 
+//function for generating html code of member card for manager member
 function createManagerCard(managerObj) { 
     return `<div class="card" style="width: 18rem;">
   <div class="card-header">
@@ -38,6 +40,7 @@ function createManagerCard(managerObj) {
 </div>`;
 }
 
+//function for generating html code of member card for engineer member
 function createEngineerCard(engineerObj) { 
     return `<div class="card" style="width: 18rem;">
   <div class="card-header">
@@ -51,6 +54,7 @@ function createEngineerCard(engineerObj) {
 </div>`;
 }
 
+//function for generating html code of member card for intern member
 function createInternCard(internObj) { 
     return `<div class="card" style="width: 18rem;">
   <div class="card-header">
@@ -64,6 +68,7 @@ function createInternCard(internObj) {
 </div>`;
 }
 
+//function for dynamically creating html code of member cards based on type of member objects in the member array and stores in the card array
 function createCards(array) { 
     var cards = [];
     for (let i = 0; i < array.length;i++) { 

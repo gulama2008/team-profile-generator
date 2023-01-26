@@ -21,7 +21,7 @@ function addManagerInquirer() {
         });
 }
 
-//inquirer questions when user choose to add new engineer
+//show inquirer questions when user choose to add new engineer
 function addEngineerInquirer() {
   inquirer
     .prompt(questions.engineerInquirerQuestions)
@@ -31,7 +31,7 @@ function addEngineerInquirer() {
     });
 }
 
-//inquirer questions when user choose to add new intern
+//show inquirer questions when user choose to add new intern
 function addInternInquirer() {
   inquirer
     .prompt(questions.internInquirerQuestions)
@@ -41,7 +41,7 @@ function addInternInquirer() {
     });
 }
 
-//function for creating member object and check if need to add more member
+//function for creating member object and check if need to add more member, if not then create member cards and write to html
 function handleData(data) { 
     if (data.memberChoice == "Engineer") {
       addEngineerInquirer();
@@ -53,19 +53,19 @@ function handleData(data) {
     }
 }
 
-//function of creating manager object and add it to the manager array
+//function of creating manager object and add it to the member array
 function addManager(data) {
   let manager = new Manager(data.managerName,data.managerId,data.managerEmail,data.managerNumber);
   memberArray.push(manager);
 }
 
-//function of creating engineer object and add it to the engineer array
+//function of creating engineer object and add it to the member array
 function addEngineer(data) {
   let engineer = new Engineer(data.engineerName,data.engineerId,data.engineerEmail,data.engineerGithub);
   memberArray.push(engineer);
 }
 
-//function of creating intern object and add it to the intern array
+//function of creating intern object and add it to the member array
 function addIntern(data) {
   let intern = new Intern(data.internName,data.internId,data.internEmail,data.internSchool);
   memberArray.push(intern);
