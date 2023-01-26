@@ -4,6 +4,7 @@ const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 const questions=require('./inquirer_questions')
+const writeHtml=require('./html_template')
 
 const managerArray = [];
 const engineerArray = [];
@@ -46,6 +47,8 @@ function handleData(data) {
     } else if (data.memberChoice == "Intern") {
       addInternInquirer();
     } else {
+        console.log(managerArray, engineerArray, internArray);
+        fs.writeFileSync("./dist/member.html", writeHtml.writeHtml("aaaaaaa"));
       return;
     }
 }
@@ -66,6 +69,10 @@ function addEngineer(data) {
 function addIntern(data) {
   let intern = new Intern(data.internName,data.internId,data.internEmail,data.internSchool);
   internArray.push(intern);
+}
+
+function writeFile() { 
+    fs.writeFileSync('../dist/member.html',)
 }
 
 module.exports = {
