@@ -79,5 +79,6 @@ function createCards(array) {
 }
 
 module.exports = {
-    writeHtml
+    writeHtml,
+    createCards,
 }

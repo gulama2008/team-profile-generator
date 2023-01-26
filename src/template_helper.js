@@ -6,9 +6,10 @@ const Intern = require("../lib/Intern");
 const questions=require('./inquirer_questions')
 const writeHtml=require('./html_template')
 
-const managerArray = [];
-const engineerArray = [];
-const internArray = [];
+// const managerArray = [];
+// const engineerArray = [];
+// const internArray = [];
+const memberArray = [];
 
 //initial inquirer questions to add team manager
 function addManagerInquirer() { 
@@ -47,8 +48,7 @@ function handleData(data) {
     } else if (data.memberChoice == "Intern") {
       addInternInquirer();
     } else {
-        console.log(managerArray, engineerArray, internArray);
-        fs.writeFileSync("./dist/member.html", writeHtml.writeHtml("aaaaaaa"));
+        fs.writeFileSync("./dist/member.html", writeHtml.writeHtml(writeHtml.createCards(memberArray)));
       return;
     }
 }
@@ -56,29 +56,26 @@ function handleData(data) {
 //function of creating manager object and add it to the manager array
 function addManager(data) {
   let manager = new Manager(data.managerName,data.managerId,data.managerEmail,data.managerNumber);
-  managerArray.push(manager);
+  memberArray.push(manager);
 }
 
 //function of creating engineer object and add it to the engineer array
 function addEngineer(data) {
   let engineer = new Engineer(data.engineerName,data.engineerId,data.engineerEmail,data.engineerGithub);
-  engineerArray.push(engineer);
+  memberArray.push(engineer);
 }
 
 //function of creating intern object and add it to the intern array
 function addIntern(data) {
   let intern = new Intern(data.internName,data.internId,data.internEmail,data.internSchool);
-  internArray.push(intern);
-}
-
-function writeFile() { 
-    fs.writeFileSync('../dist/member.html',)
+  memberArray.push(intern);
 }
 
 module.exports = {
-  managerArray,
-  engineerArray,
-  internArray,
+//   managerArray,
+//   engineerArray,
+//   internArray,
+  memberArray,
   addManagerInquirer,
   addEngineerInquirer,
   addInternInquirer,
