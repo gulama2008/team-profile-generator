@@ -1,6 +1,3 @@
-const fs = require("fs");
-
-
 function writeHtml(cards) { 
     return `
 <!DOCTYPE html>
@@ -26,6 +23,59 @@ function writeHtml(cards) {
         crossorigin="anonymous"></script>
 </body>
 </html>`;
+}
+
+function createManagerCard(managerObj) { 
+    return `<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    ${managerObj.name}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID: ${managerObj.id}</li>
+    <li class="list-group-item">Email: ${managerObj.email}</li>
+    <li class="list-group-item">Office Number: ${managerObj.officeNumber}</li>
+  </ul>
+</div>`;
+}
+
+function createEngineerCard(engineerObj) { 
+    return `<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    ${engineerObj.name}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID: ${engineerObj.id}</li>
+    <li class="list-group-item">Email: ${engineerObj.email}</li>
+    <li class="list-group-item">Github: ${engineerObj.github}</li>
+  </ul>
+</div>`;
+}
+
+function createInternCard(internObj) { 
+    return `<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    ${internObj.name}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID: ${internObj.id}</li>
+    <li class="list-group-item">Email: ${internObj.email}</li>
+    <li class="list-group-item">School: ${internObj.school}</li>
+  </ul>
+</div>`;
+}
+
+function createCards(array) { 
+    var cards = [];
+    for (let i = 0; i < array.length;i++) { 
+        if (array[i].getRole() === 'Manager') {
+            cards.push(createManagerCard(array[i]));
+        } else if (array[i].getRole() === 'Engineer') {
+            cards.push(createEngineerCard(array[i]));
+        } else { 
+            cards.push(createInternCard(array[i]));
+        }
+    }
+    return cards;
 }
 
 module.exports = {
