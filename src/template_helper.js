@@ -48,7 +48,7 @@ function handleData(data) {
     } else if (data.memberChoice == "Intern") {
       addInternInquirer();
     } else {
-        fs.writeFileSync("./dist/member.html", writeHtml.writeHtml(writeHtml.createCards(memberArray)));
+        fs.writeFileSync("./dist/member.html", writeHtml.writeHtml(writeHtml.createCards(memberArray).join('')));
       return;
     }
 }

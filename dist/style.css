@@ -1,16 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 
 body{
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header{
+    margin-left: 30px;
+    margin-right: 30px;
     font-size: 30px;
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: rgb(18, 62, 182);
+    background-color: rgb(214, 63, 63);
     color: white;
 }
 
@@ -26,8 +32,27 @@ header{
 
 .card{
     margin-right: 20px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 5px gray;
+    /* background-color: gray; */
+}
+
+.card-header{
+    background-color: rgb(38, 131, 231)!important;
+    color: white!important;
+    font-size: 30px;
+}
+
+.role{
+    font-size: 28px;
 }
 
 .card-body{
-    /* background-color: rgb(75, 87, 88); */
+    background-color: rgb(245, 246, 248);
+}
+
+.list-group{
+    margin: 5px;
+    /* padding: 20px; */
+    border: 1px solid rgb(238, 238, 239);
 }
