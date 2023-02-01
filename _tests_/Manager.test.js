@@ -39,7 +39,7 @@ describe("Manager", () => {
       const id = 1;
       const email = "tom@gmail.com";
       const officeNumber = "123456";
-      const manager = new manager(name, id, email, officeNumber);
+      const manager = new Manager(name, id, email, officeNumber);
       expect(manager.getId()).toEqual(id);
     });
   });
@@ -50,7 +50,7 @@ describe("Manager", () => {
       const id = 1;
       const email = "tom@gmail.com";
       const officeNumber = "123456";
-      const manager = new manager(name, id, email, officeNumber);
+      const manager = new Manager(name, id, email, officeNumber);
       expect(manager.getEmail()).toEqual(email);
     });
   });
@@ -61,7 +61,7 @@ describe("Manager", () => {
       const id = 1;
       const email = "tom@gmail.com";
       const officeNumber = "123456";
-      const manager = new manager(name, id, email, officeNumber);
+      const manager = new Manager(name, id, email, officeNumber);
       expect(manager.getRole()).toEqual("Manager");
     });
   });
